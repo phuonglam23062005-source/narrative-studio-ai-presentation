@@ -1,0 +1,100 @@
+.release-slide-actions {
+  align-items: center;
+  display: inline-flex;
+  gap: 3px;
+  margin-left: auto;
+}
+
+.slide-action-button {
+  background: #142033;
+  border: 1px solid #2b405e;
+  border-radius: 6px;
+  color: #9eafc5;
+  cursor: pointer;
+  font: inherit;
+  font-size: 9px;
+  padding: 5px 7px;
+}
+
+.slide-action-button:hover,
+.slide-action-button:focus-visible {
+  border-color: #927eff;
+  color: #ffffff;
+}
+
+.slide-action-button.accent {
+  background: #4c3db7;
+  border-color: #7966f2;
+  color: #ffffff;
+}
+
+.slide-action-button.danger:hover {
+  border-color: #d56a7c;
+  color: #ff9bac;
+}
+
+.source-item {
+  position: relative;
+}
+
+.source-actions {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: auto;
+}
+
+.source-actions button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #7f8da2;
+  cursor: pointer;
+  display: inline-flex;
+  height: 22px;
+  justify-content: center;
+  padding: 0;
+  width: 22px;
+}
+
+.source-actions button:hover,
+.source-actions button:focus-visible {
+  border-color: #566789;
+  color: #ffffff;
+  outline: none;
+}
+
+.interview-hint {
+  background: #121f32;
+  border: 1px solid #2a4465;
+  border-radius: 8px;
+  color: #9fb5d0;
+  font-size: 11px;
+  line-height: 1.55;
+  margin: 0 24px 14px;
+  padding: 10px 12px;
+}
+
+button:focus-visible,
+[contenteditable="true"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 2px solid #9a8dff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .source-actions {
+    display: none;
+  }
+
+  .release-slide-actions {
+    gap: 2px;
+  }
+
+  .slide-action-button {
+    font-size: 8px;
+    padding: 4px 5px;
+  }
+}

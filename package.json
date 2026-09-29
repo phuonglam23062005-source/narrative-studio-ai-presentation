@@ -1,0 +1,12 @@
+{
+  "name": "narrative-presentation-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Free/local vertical slice for the AI Presentation Workspace specification.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "build": "node scripts/build.mjs",
+    "check": "node --check app.js && node --check agent-runtime.js && node --check release-runtime.js",
+    "test": "node scripts/smoke-test.mjs"
+  }
+}
