@@ -1,0 +1,5 @@
+# Editor contract
+
+Editor thao tác trên Presentation JSON. Phase 0 hỗ trợ canvas 16:9, slide rail, inline text, inspector, slide operations, undo/redo, version restore và local autosave. Có chế độ Xem trước chỉ đọc lấy trực tiếp từ Presentation JSON, chuyển slide bằng nút hoặc phím mũi tên, cùng zoom canvas 60–120% bằng nút hoặc phím `+`/`-`. Vùng canvas chỉ hiển thị hành động thường dùng; thao tác sắp xếp, nhân bản và xóa nằm trong menu `•••`, có thể mở bằng bàn phím và đóng bằng `Escape`. Các công cụ shape và chia sẻ chưa có hành vi production được ẩn để tránh tạo affordance giả. Các lượt render được gom theo animation frame để tránh cập nhật DOM trùng trong cùng một frame. UI bổ sung workflow progress, trạng thái QA/save rõ ràng, focus state, responsive layout và hiệu ứng chuyển cảnh có thể tắt theo `prefers-reduced-motion`.
+
+Các năng lực chưa có: multi-select, drag/resize/rotate đầy đủ, layers/group, image crop, chart data editor, conflict-aware server autosave. Không được serialize DOM thành domain model để bù cho các phần này.

@@ -17,7 +17,8 @@
 
   function readRun() {
     try {
-      var raw = localStorage.getItem(RUN_KEY);
+      var storage = window.NarrativeFoundation ? window.NarrativeFoundation.storage : window.localStorage;
+      var raw = storage.getItem(RUN_KEY);
       if (!raw) return null;
       var parsed = JSON.parse(raw);
       if (parsed) { parsed.executionAlive = false; if (parsed.status === 'running') parsed.status = 'paused'; }
@@ -27,7 +28,7 @@
   var run = readRun() || { id: null, status: 'idle', goal: '', step: 0, trace: [], artifacts: {}, activeAgents: {}, budget: { steps: 0, agents: 0, maxSteps: MAX_STEPS, maxAgents: MAX_AGENTS }, startedAt: null, completedAt: null };
   var waiters = [];
 
-  function persist() { localStorage.setItem(RUN_KEY, JSON.stringify(run)); render(); }
+  function persist() { var storage = window.NarrativeFoundation ? window.NarrativeFoundation.storage : window.localStorage; storage.setItem(RUN_KEY, JSON.stringify(run)); render(); }
   function sleep(ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); }
   function envelope(from, to, type, payload, evidence) {
     return { messageId: 'msg_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7), runId: run.id, from: from, to: to, type: type, goal: run.goal, payload: payload, evidence: evidence || [], createdAt: new Date().toISOString() };
@@ -132,6 +133,7 @@
     }
     if (!(await executeStage('manager', 'finalize_artifacts', async function () {
       run.artifacts.presentation = toPresentationJSON(); run.artifacts.brief = clone(state.project.brief); run.artifacts.sourceMap = clone(state.project.sourceMap); run.artifacts.qa = clone(state.project.qa);
+      if (typeof validatePresentationJSON === 'function') { var validation = validatePresentationJSON(run.artifacts.presentation); if (!validation.ok) throw new Error('Presentation JSON contract failed: ' + validation.errors[0]); }
       commitVersion('agent_team', 'Đội agent hoàn tất', 'Manager verified ' + state.project.slides.length + ' slide · ' + state.project.language + ' · ' + state.project.qa.status);
       return { summary: 'Manager đã verify artifact và ghi version; không publish hoặc gửi dữ liệu ra ngoài.', evidence: ['presentation-json.v1', 'version snapshot', 'QA=' + state.project.qa.status] };
     }))) return;
@@ -143,7 +145,7 @@
     $('#startAgentRunBtn').addEventListener('click', function () { if (run.status === 'paused' && run.id && run.executionAlive) { run.status = 'running'; wake(); checkpoint(); } else runPipeline(); });
     $('#pauseAgentRunBtn').addEventListener('click', function () { if (run.status === 'running') { run.status = 'paused'; checkpoint(); if (typeof showToast === 'function') showToast('Run đã tạm dừng tại checkpoint; có thể tiếp tục.'); } });
     $('#stopAgentRunBtn').addEventListener('click', function () { if (['running', 'paused'].includes(run.status)) { run.status = 'stopped'; run.executionAlive = false; wake(); checkpoint(); if (typeof showToast === 'function') showToast('Run đã dừng an toàn; artifact trung gian vẫn giữ trong trace.'); } });
-    $('#clearAgentTraceBtn').addEventListener('click', function () { run = { id: null, status: 'idle', goal: '', step: 0, trace: [], artifacts: {}, activeAgents: {}, budget: { steps: 0, agents: 0, maxSteps: MAX_STEPS, maxAgents: MAX_AGENTS }, startedAt: null, completedAt: null }; localStorage.removeItem(RUN_KEY); render(); });
+    $('#clearAgentTraceBtn').addEventListener('click', function () { run = { id: null, status: 'idle', goal: '', step: 0, trace: [], artifacts: {}, activeAgents: {}, budget: { steps: 0, agents: 0, maxSteps: MAX_STEPS, maxAgents: MAX_AGENTS }, startedAt: null, completedAt: null }; var storage = window.NarrativeFoundation ? window.NarrativeFoundation.storage : window.localStorage; storage.removeItem(RUN_KEY); render(); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
 })();

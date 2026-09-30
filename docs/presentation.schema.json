@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "presentation-json.v1",
+  "title": "Presentation JSON",
+  "type": "object",
+  "required": ["schemaVersion", "deckId", "language", "brief", "theme", "slides", "version", "qa"],
+  "properties": {
+    "schemaVersion": { "const": "presentation-json.v1" },
+    "deckId": { "type": "string", "minLength": 1 },
+    "language": { "enum": ["vi", "en"] },
+    "brief": { "type": "object" },
+    "theme": { "type": "object" },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "intent", "layoutId", "elements", "speakerNotes", "sourceRefs"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^slide_[A-Za-z0-9_-]+$" },
+          "order": { "type": "integer", "minimum": 1 },
+          "intent": { "type": "string" },
+          "layoutId": { "type": "string" },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "type", "frame", "content", "style", "sourceRefs"],
+              "properties": {
+                "id": { "type": "string" },
+                "type": { "enum": ["text", "image", "shape", "chart", "diagram"] },
+                "frame": { "type": "object", "required": ["x", "y", "w", "h"] },
+                "content": { "type": "object" },
+                "style": { "type": "object" },
+                "sourceRefs": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          },
+          "speakerNotes": { "type": "string" },
+          "sourceRefs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "version": { "type": "integer", "minimum": 1 },
+    "currentVersionId": { "type": "string" },
+    "qa": { "type": "object", "required": ["status", "issues"] }
+  }
+}

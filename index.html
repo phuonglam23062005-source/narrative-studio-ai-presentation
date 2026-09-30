@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b1019" />
+    <meta name="theme-color" content="#f6f8fc" />
     <title>Narrative Studio — AI Presentation Workspace</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="release.css?v=release-4" />
@@ -16,8 +16,40 @@
       .toast.warning{border-color:#7b5530;background:#3a2c1d}.toast:not(.hidden){animation:toastIn .2s ease-out}@keyframes toastIn{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
       .agent-page-heading{margin-bottom:26px}.agent-live{background:#5be1aa!important;box-shadow:0 0 8px #5be1aa}.agent-dashboard{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.8fr);gap:14px}.agent-control{grid-column:1/-1;padding:22px}.agent-control-top,.trace-header,.output-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.agent-live-label{color:#5be1aa;font-size:9px;font-weight:800;letter-spacing:.14em}.pulse-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5be1aa;box-shadow:0 0 12px #5be1aa;margin-right:5px}.agent-control h2,.agent-trace h2,.agent-output h2{font-size:15px;margin:8px 0 4px}.agent-control p,.agent-trace p,.agent-output p{font-size:10px;color:#8d9ab1;margin:0}.run-state-badge,.artifact-status{padding:5px 8px;border-radius:6px;font-size:9px;font-weight:800;color:#9aa8be;background:#1d2a3d;border:1px solid #34445f}.run-state-badge.running{color:#bdb6ff;background:#28234e;border-color:#6259b5}.run-state-badge.completed,.artifact-status.ready{color:#5be1aa;background:#15342c;border-color:#275b4d}.run-state-badge.paused,.run-state-badge.stopped{color:#ffb56d;background:#3d2c1b;border-color:#6a4828}.goal-label{display:block;color:#c7d0e1;font-size:10px;margin-top:20px}.goal-label textarea{display:block;width:100%;min-height:65px;margin-top:7px;resize:vertical;padding:11px;border:1px solid #2e3e5c;border-radius:8px;background:#0d1522;color:#e5ebf7;font-size:11px}.agent-control-actions{display:flex;gap:7px;margin-top:13px}.agent-control-actions button:disabled{opacity:.35;cursor:not-allowed}.run-budget{display:flex;justify-content:space-between;color:#72829a;font-size:9px;margin-top:18px}.budget-track{height:5px;background:#25344b;border-radius:99px;overflow:hidden;margin-top:7px}.budget-track span{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#8b7cf6,#5be1aa);transition:width .25s}.agent-team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.agent-card{padding:15px;border:1px solid #263247;border-radius:12px;background:linear-gradient(150deg,#151f30,#111925);position:relative}.agent-card.active{border-color:#766cf0;box-shadow:0 0 0 1px #766cf044}.agent-card.done{border-color:#2b6455}.agent-card-top{display:flex;justify-content:space-between;align-items:center}.agent-avatar{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:850;background:linear-gradient(135deg,#7a6df1,#435ad2)}.agent-card:nth-child(2) .agent-avatar{background:linear-gradient(135deg,#4bb6d3,#376dbd)}.agent-card:nth-child(3) .agent-avatar{background:linear-gradient(135deg,#d99361,#9a4d6c)}.agent-card:nth-child(4) .agent-avatar{background:linear-gradient(135deg,#4bc59b,#287e79)}.agent-card:nth-child(5) .agent-avatar{background:linear-gradient(135deg,#b58be9,#6856bc)}.agent-card:nth-child(6) .agent-avatar{background:linear-gradient(135deg,#e1b15e,#a36c2e)}.agent-card h3{font-size:11px;margin:14px 0 3px}.agent-card p{font-size:9px;color:#7f8da2;margin:0;line-height:1.5}.agent-card-status{font-size:8px;color:#68788f}.agent-card-status.running{color:#bdb6ff}.agent-card-status.done{color:#5be1aa}.agent-trace,.agent-output{padding:17px}.agent-trace{grid-column:1/-1}.agent-timeline{margin-top:17px;display:grid;gap:5px;max-height:310px;overflow:auto}.empty-agent-state{display:grid;place-items:center;gap:7px;padding:30px;color:#74839a;text-align:center}.empty-agent-state strong{color:#bac5d7;font-size:11px}.empty-agent-state span{font-size:9px}.agent-orb.large{width:38px;height:38px;margin-bottom:4px}.trace-event{display:grid;grid-template-columns:8px 1fr auto;gap:10px;align-items:start;padding:10px;border-bottom:1px solid #1d293c}.trace-event:last-child{border-bottom:0}.trace-dot{width:7px;height:7px;border-radius:50%;background:#7c70ec;margin-top:5px}.trace-event.done .trace-dot{background:#5be1aa}.trace-event.error .trace-dot{background:#ff7e96}.trace-event strong{display:block;font-size:10px;color:#dce4f2}.trace-event p{font-size:9px;color:#8290a7;margin:3px 0 0}.trace-event time{color:#62718a;font-size:8px}.agent-output{min-height:160px}.agent-artifact{margin-top:16px;padding:14px;border-radius:9px;border:1px dashed #394a69;background:#101a29;color:#8b99ae;font-size:10px}.artifact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.artifact-item{padding:10px 8px;border-radius:7px;background:#172438;border:1px solid #2b3a55}.artifact-item strong{display:block;font-size:9px;color:#d5def0}.artifact-item span{display:block;color:#7f8fa7;font-size:8px;margin-top:3px}.agent-output .output-header{align-items:center}@media(max-width:1050px){.agent-dashboard{grid-template-columns:1fr}.agent-team-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.agent-team-grid{grid-template-columns:1fr}.agent-control-actions{flex-wrap:wrap}.agent-output{grid-column:1/-1}}
     </style>
+    <link rel="stylesheet" href="light-theme.css?v=light-2" />
   </head>
   <body>
+    <div class="auth-gate" id="authGate" aria-labelledby="authTitle">
+      <div class="auth-card">
+        <div class="auth-brand"><span class="brand-mark">N</span><span>narrative<span class="muted">/studio</span></span></div>
+        <div class="auth-kicker">AI PRESENTATION WORKSPACE</div>
+        <h1 id="authTitle">Tạo slide từ lệnh của bạn</h1>
+        <p class="auth-lead">Đính kèm tài liệu, mô tả điều bạn muốn trình bày và chỉnh sửa kết quả ngay trong workspace.</p>
+        <div class="auth-tabs" role="tablist" aria-label="Tài khoản">
+          <button class="auth-tab active" id="showLoginBtn" type="button" role="tab" aria-selected="true">Đăng nhập</button>
+          <button class="auth-tab" id="showRegisterBtn" type="button" role="tab" aria-selected="false">Tạo tài khoản</button>
+        </div>
+        <form id="loginForm" class="auth-form">
+          <label>Email<input id="loginEmail" type="email" autocomplete="email" required placeholder="ban@example.com" /></label>
+          <label>Mật khẩu<input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Tối thiểu 6 ký tự" /></label>
+          <button class="primary-button auth-submit" type="submit">Vào workspace <span>→</span></button>
+        </form>
+        <form id="registerForm" class="auth-form hidden">
+          <label>Tên hiển thị<input id="registerName" type="text" autocomplete="name" required placeholder="Tên của bạn" /></label>
+          <label>Email<input id="registerEmail" type="email" autocomplete="email" required placeholder="ban@example.com" /></label>
+          <label>Mật khẩu<input id="registerPassword" type="password" autocomplete="new-password" required placeholder="Tối thiểu 6 ký tự" /></label>
+          <button class="primary-button auth-submit" type="submit">Tạo tài khoản local <span>→</span></button>
+        </form>
+        <div class="auth-divider"><span>hoặc</span></div>
+        <div class="google-auth-block" aria-label="Đăng nhập bằng Google">
+          <div id="googleButton" class="google-button-host"></div>
+          <button id="googleUnavailableButton" class="google-unavailable-button" type="button" disabled>Đăng nhập bằng Google</button>
+          <p id="googleAuthStatus" class="google-auth-status" role="status" aria-live="polite">Google OAuth chưa được cấu hình cho bản local.</p>
+        </div>
+        <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
+        <p class="auth-footnote">Local auth chỉ để chạy thử hành trình. Google và phân quyền production cần endpoint server xác thực riêng.</p>
+      </div>
+    </div>
     <div class="app-shell">
       <aside class="sidebar">
         <div class="brand"><span class="brand-mark">N</span><span>narrative<span class="muted">/studio</span></span></div>
@@ -25,6 +57,7 @@
 
         <nav class="main-nav" aria-label="Điều hướng chính">
           <button class="nav-item active" data-view="editor"><span class="nav-icon">▦</span> Trình soạn thảo</button>
+          <button class="nav-item admin-only role-nav" data-view="admin"><span class="nav-icon">⌘</span> Quản trị <span class="status-dot admin-dot"></span></button>
           <button class="nav-item" data-view="agents"><span class="nav-icon">✦</span> Đội AI agent <span class="status-dot agent-live"></span></button>
           <button class="nav-item" data-view="projects"><span class="nav-icon">□</span> Dự án <span class="nav-count">4</span></button>
           <button class="nav-item" data-view="integrations"><span class="nav-icon">◈</span> Kết nối <span class="status-dot"></span></button>
@@ -36,18 +69,24 @@
 
         <div class="sidebar-footer">
           <div class="free-meter"><div class="meter-heading"><span>Không mất phí</span><span id="creditLabel">1.240 / 2.000</span></div><div class="meter-track"><span style="width:62%"></span></div><p>Chỉ dùng local trong bản này</p></div>
-          <div class="user-row"><div class="avatar">MP</div><div><strong>Phương M.</strong><span>Chủ workspace</span></div><span class="chevron">⌄</span></div>
+          <div class="user-row"><div class="avatar" id="userAvatar">MP</div><div><strong id="userName">Phương M.</strong><span id="userEmail">Chủ workspace</span><em id="roleBadge" class="role-badge customer">Khách hàng</em></div><button class="logout-button" id="logoutBtn" type="button">Thoát</button></div>
         </div>
       </aside>
 
       <main class="main-content">
         <header class="topbar">
-          <div class="breadcrumbs"><span>Dự án</span><span>/</span><strong id="breadcrumbProjectName">Q4 Growth Narrative</strong><span class="draft-pill" id="stagePill">BẢN NHÁP</span></div>
-          <div class="top-actions"><label class="language-control" title="Ngôn ngữ mặc định là tiếng Việt"><span>VI</span><select id="languageSelect" aria-label="Ngôn ngữ"><option value="vi">Tiếng Việt</option><option value="en">English</option></select></label><button class="ghost-button" id="previewBtn">Xem trước</button><button class="secondary-button" id="exportBtn">Xuất JSON <span>↗</span></button><button class="primary-button" id="shareBtn">Chia sẻ <span>⌄</span></button></div>
+          <div class="breadcrumbs"><span>Dự án</span><span>/</span><strong id="breadcrumbProjectName">Q4 Growth Narrative</strong><span class="draft-pill" id="stagePill">BẢN NHÁP</span><span id="rolePill" class="role-pill customer">Khách hàng</span></div>
+          <div class="top-actions"><label class="language-control" title="Ngôn ngữ mặc định là tiếng Việt"><span>VI</span><select id="languageSelect" aria-label="Ngôn ngữ"><option value="vi">Tiếng Việt</option><option value="en">English</option></select></label><button class="ghost-button" id="previewBtn">Xem trước</button><button class="secondary-button" id="exportBtn">Xuất JSON <span>↗</span></button><button class="primary-button deferred-share-button" id="shareBtn" title="Chia sẻ sẽ bật sau khi có kết nối ngoài">Chia sẻ <span>⌄</span></button></div>
         </header>
 
         <section id="view-editor" class="view active-view">
-          <div class="editor-heading"><div><div class="eyebrow">AI PRESENTATION WORKSPACE</div><h1 id="editorProjectName">Q4 Growth Narrative</h1><p>Biến tài liệu nguồn thành câu chuyện rõ ràng, chỉnh sửa được — luôn có người kiểm soát.</p></div><div class="heading-actions"><button class="outline-button" id="interviewBtn"><span class="spark">✦</span> Rà soát brief AI</button><button class="primary-button" id="generateBtn">Sinh bản cập nhật <span>→</span></button></div></div>
+          <div class="editor-heading"><div><div class="eyebrow">AI PRESENTATION WORKSPACE</div><h1 id="editorProjectName">Q4 Growth Narrative</h1><p>Đính kèm tài liệu, ra lệnh một lần, nhận bản trình bày có thể chỉnh sửa.</p><div class="workflow-steps" id="workflowSteps" aria-label="Tiến độ dự án"><span class="workflow-step active" data-step="0">01 Nguồn</span><span class="workflow-arrow">→</span><span class="workflow-step" data-step="1">02 Lệnh</span><span class="workflow-arrow">→</span><span class="workflow-step" data-step="2">03 Deck</span></div></div><div class="heading-actions"><button class="outline-button" id="interviewBtn"><span class="spark">✦</span> Rà soát brief AI</button><button class="primary-button" id="generateBtn">Sinh bản cập nhật <span>→</span></button></div></div>
+
+          <section class="command-first-card" aria-labelledby="commandFirstTitle">
+            <div class="command-first-copy"><span class="command-first-icon">✦</span><div><div class="eyebrow">BƯỚC 1 · RA LỆNH</div><h2 id="commandFirstTitle">Bạn muốn tạo slide gì?</h2><p>Viết mục tiêu, đối tượng và kết quả mong muốn bằng ngôn ngữ tự nhiên.</p></div></div>
+            <div class="command-first-controls"><textarea id="quickCommandInput" rows="2" placeholder="Ví dụ: Tạo deck 6 slide tiếng Việt cho ban lãnh đạo, tập trung vào 3 quyết định Q4 từ tài liệu đính kèm."></textarea><div class="command-first-actions"><button class="secondary-button" id="quickAttachBtn" type="button">＋ Đính kèm file</button><button class="primary-button" id="quickCreateBtn" type="button">Tạo slide bằng lệnh <span>→</span></button></div></div>
+            <div class="command-first-meta"><span id="quickAttachmentSummary">Chưa có file mới · file chỉ được đọc trong trình duyệt</span><span>Tiếng Việt mặc định · có thể chỉnh sửa sau khi tạo</span></div>
+          </section>
 
           <div class="workspace-grid">
             <section class="source-panel panel-card">
@@ -59,8 +98,8 @@
             </section>
 
             <section class="canvas-panel">
-              <div class="canvas-toolbar"><div class="toolbar-left"><button class="tool-button active" data-tool="select" title="Chọn">↖</button><button class="tool-button" data-tool="text" title="Văn bản">T</button><button class="tool-button" data-tool="shape" title="Hình">◇</button><span class="toolbar-divider"></span><button class="tool-button" id="undoBtn" title="Hoàn tác">↶</button><button class="tool-button" id="redoBtn" title="Làm lại">↷</button></div><div class="toolbar-center"><button class="zoom-button">−</button><span id="zoomValue">84%</span><button class="zoom-button">＋</button></div><div class="toolbar-right"><span class="save-status"><i></i> <span id="saveStatus">Đã lưu cục bộ</span></span><span id="qaStatus" class="qa-chip passed">QA OK</span><button class="tool-button" id="fullscreenBtn">⛶</button></div></div>
-              <div class="canvas-stage"><div class="slide-strip" id="slideStrip"></div><div class="slide-wrap"><div class="slide-canvas" id="slideCanvas"></div><div class="canvas-foot"><span id="slideCounter">01 / 06</span><span>16:9 · 1920 × 1080</span><span class="hint">Bấm vào chữ để chỉnh sửa</span><span id="releaseSlideActions" class="release-slide-actions"><button class="slide-action-button" id="moveSlideLeftBtn" title="Đưa slide sang trái">←</button><button class="slide-action-button" id="moveSlideRightBtn" title="Đưa slide sang phải">→</button><button class="slide-action-button" id="duplicateSlideBtn" title="Nhân bản slide">Nhân bản</button><button class="slide-action-button accent" id="addSlideBtn" title="Thêm slide">＋ Slide</button><button class="slide-action-button danger" id="deleteSlideBtn" title="Xóa slide">Xóa</button></span></div></div></div>
+              <div class="canvas-toolbar"><div class="toolbar-left"><button class="tool-button active" data-tool="select" title="Chọn">↖</button><button class="tool-button" data-tool="text" title="Văn bản">T</button><button class="tool-button" data-tool="shape" title="Hình">◇</button><span class="toolbar-divider"></span><button class="tool-button" id="undoBtn" title="Hoàn tác">↶</button><button class="tool-button" id="redoBtn" title="Làm lại">↷</button></div><div class="toolbar-center"><button class="zoom-button" id="zoomOutBtn" title="Thu nhỏ canvas" aria-label="Thu nhỏ canvas">−</button><span id="zoomValue">84%</span><button class="zoom-button" id="zoomInBtn" title="Phóng to canvas" aria-label="Phóng to canvas">＋</button></div><div class="toolbar-right"><span class="save-status" role="status" aria-live="polite"><i></i> <span id="saveStatus">Đã lưu cục bộ</span></span><span id="qaStatus" class="qa-chip passed" role="status">QA OK</span><button class="tool-button" id="fullscreenBtn" title="Toàn màn hình" aria-label="Toàn màn hình">⛶</button></div></div>
+              <div class="canvas-stage"><div class="slide-strip" id="slideStrip"></div><div class="slide-wrap"><div class="slide-canvas" id="slideCanvas"></div><div class="canvas-foot"><div class="canvas-foot-meta"><span id="slideCounter">01 / 06</span><span class="canvas-size">16:9 · 1920 × 1080</span><span class="hint">Bấm vào chữ để chỉnh sửa</span></div><span id="releaseSlideActions" class="release-slide-actions"><button class="slide-action-button accent" id="addSlideBtn" title="Thêm slide">＋ Slide</button><button class="slide-action-button menu-trigger" id="slideActionsToggle" aria-haspopup="menu" aria-expanded="false" aria-controls="slideActionsMenu" title="Thao tác slide" aria-label="Mở thao tác slide">•••</button><span class="slide-actions-menu hidden" id="slideActionsMenu" role="menu"><button class="slide-action-button" id="duplicateSlideBtn" role="menuitem">Nhân bản slide</button><button class="slide-action-button" id="moveSlideLeftBtn" role="menuitem">← Đưa sang trái</button><button class="slide-action-button" id="moveSlideRightBtn" role="menuitem">→ Đưa sang phải</button><button class="slide-action-button danger" id="deleteSlideBtn" role="menuitem">Xóa slide</button></span></span></div></div></div>
             </section>
 
             <aside class="inspector-panel panel-card">
@@ -79,6 +118,17 @@
           </div>
         </section>
 
+        <section id="view-admin" class="view admin-only-view">
+          <div class="page-heading"><div class="eyebrow">ADMIN CONTROL PLANE</div><h1>Bảng điều khiển quản trị</h1><p>Chỉ tài khoản được server xác thực với role <strong>admin</strong> mới được truy cập khu vực này.</p></div>
+          <div class="admin-banner panel-card"><div class="admin-banner-icon">⌘</div><div><strong id="adminWelcome">Quản trị viên workspace</strong><p>Đang xem trạng thái quyền, Google OAuth và tài khoản local trong trình duyệt này.</p></div><span class="role-badge admin">ADMIN</span></div>
+          <div class="admin-grid">
+            <section class="admin-card panel-card"><div class="admin-card-label">TÀI KHOẢN HIỆN TẠI</div><h2 id="adminIdentity">—</h2><p id="adminIdentityMeta">Role được cấp từ auth boundary.</p></section>
+            <section class="admin-card panel-card"><div class="admin-card-label">GOOGLE OAUTH</div><h2 id="adminGoogleStatus">Chưa cấu hình</h2><p id="adminGoogleMeta">Cần client ID và endpoint verify server.</p></section>
+            <section class="admin-card panel-card"><div class="admin-card-label">TÀI KHOẢN LOCAL</div><h2 id="adminLocalUserCount">0</h2><p>Chỉ là dữ liệu demo trong trình duyệt này.</p></section>
+          </div>
+          <section class="admin-users panel-card"><div class="panel-header"><div><h2>Phân quyền tài khoản</h2><p>Admin có thể xem; thay đổi role production phải đi qua backend/RLS.</p></div><span class="admin-policy-badge">SERVER AUTHORITY</span></div><div id="adminUserList" class="admin-user-list"></div></section>
+        </section>
+
         <section id="view-agents" class="view">
           <div class="page-heading agent-page-heading"><div class="eyebrow">AGENT OPERATING SYSTEM</div><h1>Đội AI agent tự vận hành</h1><p>Bạn đưa mục tiêu một lần. Manager agent tự chia việc, truyền context, kiểm tra và trả artifact cuối.</p></div>
           <div class="agent-dashboard">
@@ -94,16 +144,21 @@
           </div>
         </section>
 
-        <section id="view-integrations" class="view"><div class="page-heading"><div class="eyebrow">TRẠNG THÁI TOOLCHAIN</div><h1>Kết nối công cụ</h1><p>Giữ workflow dùng được với đường local/free; chỉ ghi nhận kết nối khi kiểm chứng được.</p></div><div class="integration-grid" id="integrationGrid"></div><div class="notice-card"><span class="spark">✦</span><div><strong>Nguyên tắc kết nối</strong><p>Presentation JSON là source of truth. Công cụ ngoài chỉ nhận export/handoff rõ ràng và không được âm thầm ghi đè dự án web.</p></div></div></section>
+        <section id="view-integrations" class="view"><div class="page-heading"><div class="eyebrow">TRẠNG THÁI TOOLCHAIN</div><h1>Kết nối công cụ</h1><p>Giữ workflow dùng được với đường local/free; chỉ ghi nhận kết nối khi kiểm chứng được.</p></div><div class="integration-readiness" id="integrationReadiness"></div><div class="integration-grid" id="integrationGrid"></div><div class="notice-card"><span class="spark">✦</span><div><strong>Nguyên tắc kết nối</strong><p>Presentation JSON là source of truth. Công cụ ngoài chỉ nhận export/handoff rõ ràng và không được âm thầm ghi đè dự án web.</p></div></div></section>
         <section id="view-projects" class="view"><div class="page-heading"><div class="eyebrow">WORKSPACE</div><h1>Dự án</h1><p>Gom brief, bản đồ nguồn, phiên bản và export vào cùng một nơi.</p></div><div class="project-board" id="projectBoard"><div class="project-tile active"><div class="tile-cover purple">Q4</div><strong>Q4 Growth Narrative</strong><span>6 slide · Bản nháp</span></div><div class="project-tile"><div class="tile-cover blue">ON</div><strong>Onboarding story</strong><span>8 slide · Đã khóa brief</span></div><div class="project-tile"><div class="tile-cover orange">BR</div><strong>Brand refresh</strong><span>12 slide · Đang duyệt</span></div><button class="new-project-tile" id="newProjectBtn">＋<strong>Dự án mới</strong><span>Bắt đầu từ nguồn tài liệu</span></button></div></section>
         <section id="view-activity" class="view"><div class="page-heading"><div class="eyebrow">AUDIT TRAIL</div><h1>Nhật ký hoạt động</h1><p>Mọi thay đổi nhỏ đều có thể kiểm tra và hoàn tác.</p></div><div class="activity-list" id="activityList"></div></section>
       </main>
     </div>
 
-    <div class="toast hidden" id="toast"></div>
+    <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop hidden" id="previewModal"><div class="preview-modal"><div class="preview-modal-head"><div><div class="eyebrow">PRESENTATION PREVIEW</div><h2>Xem trước bản trình bày</h2><p>Chế độ trình chiếu chỉ đọc · nội dung vẫn lấy từ Presentation JSON.</p></div><button class="close-button" data-close="previewModal" aria-label="Đóng xem trước">×</button></div><div class="preview-stage"><div id="previewCanvas" class="preview-canvas"></div></div><div class="preview-controls"><button class="secondary-button" id="previewPrevBtn">← Slide trước</button><span id="previewCounter">01 / 06</span><button class="primary-button" id="previewNextBtn">Slide tiếp →</button></div></div></div>
     <div class="modal-backdrop hidden" id="interviewModal"><div class="modal"><div class="modal-head"><div><div class="eyebrow">PHỎNG VẤN THÍCH ỨNG</div><h2>Khóa master brief</h2><p>Chỉ còn ba câu hỏi trọng tâm trước khi sinh deck.</p></div><button class="close-button" data-close="interviewModal">×</button></div><div class="question-list"><label><span>01</span><div><strong>Ai cần tin vào câu chuyện này?</strong><select id="audienceSelect"><option>Ban lãnh đạo</option><option>Đội sản phẩm và tăng trưởng</option><option>Khách hàng/đối tác</option></select></div></label><label><span>02</span><div><strong>Sau bài trình bày, điều gì cần thay đổi?</strong><select id="outcomeSelect"><option>Phê duyệt đầu tư giữ chân Q4</option><option>Thống nhất roadmap</option><option>Cùng khám phá dữ liệu</option></select></div></label><label><span>03</span><div><strong>Điều gì tuyệt đối không được nói quá?</strong><select id="riskSelect"><option>Độ chắc chắn của dự báo</option><option>Kích thước mẫu khách hàng</option><option>Vị thế cạnh tranh</option></select></div></label></div><div class="modal-foot"><span>Câu trả lời chỉ lưu trong brief local, không gửi ra ngoài.</span><button class="primary-button" id="lockBriefBtn">Khóa brief <span>→</span></button></div></div></div>
     <div class="modal-backdrop hidden" id="sourceModal"><div class="modal small-modal"><div class="modal-head"><div><div class="eyebrow">NẠP NGUỒN</div><h2>Thêm tài liệu nguồn</h2><p>Bản local: file được đọc trong trình duyệt, không upload.</p></div><button class="close-button" data-close="sourceModal">×</button></div><div class="drop-zone"><div class="upload-icon">↑</div><strong>Kéo PDF, DOCX, CSV, TXT hoặc ảnh vào đây</strong><span>hoặc chọn file trên máy</span><input type="file" id="fileInput" accept=".pdf,.docx,.ppt,.pptx,.xls,.xlsx,.csv,.txt,.png,.jpg,.jpeg" /></div><div class="modal-foot"><span id="fileName">Chưa chọn file</span><button class="secondary-button" data-close="sourceModal">Đóng</button></div></div></div>
     <div class="modal-backdrop hidden" id="projectModal"><div class="modal small-modal"><div class="modal-head"><div><div class="eyebrow">KHỞI TẠO VERTICAL SLICE</div><h2>Tạo dự án mới</h2><p>Tiếng Việt là ngôn ngữ mặc định; bạn có thể đổi sau.</p></div><button class="close-button" data-close="projectModal">×</button></div><div class="project-form"><label>Tên dự án<input id="newProjectName" value="Bài trình bày mới" /></label><label>Mục tiêu chính<textarea id="newProjectObjective">Biến tài liệu nguồn thành một câu chuyện rõ ràng để ra quyết định.</textarea></label><label>Khán giả<select id="newProjectAudience"><option>Ban lãnh đạo</option><option>Khách hàng/đối tác</option><option>Đội nội bộ</option></select></label></div><div class="modal-foot"><span>Không gọi provider AI trả phí trong bước này.</span><button class="primary-button" id="createProjectBtn">Tạo dự án <span>→</span></button></div></div></div>
+    <script src="foundation-runtime.js"></script>
+    <script src="presentation-domain.js"></script>
+    <script src="auth-config.js"></script>
+    <script src="auth-runtime.js?v=auth-2"></script>
     <script src="app.js"></script>
     <script src="agent-runtime.js"></script>
     <script src="release-runtime.js?v=release-3"></script>

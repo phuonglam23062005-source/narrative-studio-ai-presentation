@@ -96,11 +96,20 @@
       wrapper = document.createElement('span');
       wrapper.id = 'releaseSlideActions';
       wrapper.className = 'release-slide-actions';
-      wrapper.innerHTML = '<button class="slide-action-button" id="moveSlideLeftBtn" title="Đưa slide sang trái">←</button><button class="slide-action-button" id="moveSlideRightBtn" title="Đưa slide sang phải">→</button><button class="slide-action-button" id="duplicateSlideBtn" title="Nhân bản slide">Nhân bản</button><button class="slide-action-button accent" id="addSlideBtn" title="Thêm slide">＋ Slide</button><button class="slide-action-button danger" id="deleteSlideBtn" title="Xóa slide">Xóa</button>';
       toolbar.appendChild(wrapper);
+    }
+    if (!byId('slideActionsToggle')) {
+      wrapper.innerHTML = '<button class="slide-action-button accent" id="addSlideBtn" title="Thêm slide">＋ Slide</button><button class="slide-action-button menu-trigger" id="slideActionsToggle" aria-haspopup="menu" aria-expanded="false" aria-controls="slideActionsMenu" title="Thao tác slide" aria-label="Mở thao tác slide">•••</button><span class="slide-actions-menu hidden" id="slideActionsMenu" role="menu"><button class="slide-action-button" id="duplicateSlideBtn" role="menuitem">Nhân bản slide</button><button class="slide-action-button" id="moveSlideLeftBtn" role="menuitem">← Đưa sang trái</button><button class="slide-action-button" id="moveSlideRightBtn" role="menuitem">→ Đưa sang phải</button><button class="slide-action-button danger" id="deleteSlideBtn" role="menuitem">Xóa slide</button></span>';
     }
     if (wrapper.dataset.bound === 'true') return;
     wrapper.dataset.bound = 'true';
+    var toggle = byId('slideActionsToggle');
+    var menu = byId('slideActionsMenu');
+    function closeMenu() { menu.classList.add('hidden'); toggle.setAttribute('aria-expanded', 'false'); }
+    toggle.addEventListener('click', function (event) { event.stopPropagation(); var open = menu.classList.toggle('hidden') === false; toggle.setAttribute('aria-expanded', String(open)); });
+    menu.addEventListener('click', closeMenu);
+    document.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeMenu(); });
     byId('moveSlideLeftBtn').addEventListener('click', function () { moveSlide(-1); });
     byId('moveSlideRightBtn').addEventListener('click', function () { moveSlide(1); });
     byId('duplicateSlideBtn').addEventListener('click', duplicateSlide);
