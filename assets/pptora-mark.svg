@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">PPTora</title>
+  <desc id="desc">Biểu tượng dải ruy băng nhiều lớp với nút phát</desc>
+  <defs>
+    <linearGradient id="orange" x1="55" y1="30" x2="184" y2="175" gradientUnits="userSpaceOnUse"><stop stop-color="#FFC64C"/><stop offset=".48" stop-color="#FF7D32"/><stop offset="1" stop-color="#FF4E65"/></linearGradient>
+    <linearGradient id="coral" x1="53" y1="86" x2="178" y2="165" gradientUnits="userSpaceOnUse"><stop stop-color="#FF633B"/><stop offset=".56" stop-color="#F93765"/><stop offset="1" stop-color="#C72ED1"/></linearGradient>
+    <linearGradient id="violet" x1="83" y1="180" x2="151" y2="105" gradientUnits="userSpaceOnUse"><stop stop-color="#4B20D8"/><stop offset=".53" stop-color="#7428E8"/><stop offset="1" stop-color="#E83AAB"/></linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <path fill="url(#orange)" d="M63 35c-14 0-25 11-25 25v121c0 15 12 26 26 26 6 0 12-2 17-6l89-68c18-14 18-42 0-56L80 41a27 27 0 0 0-17-6Z"/>
+  <path fill="url(#coral)" d="m42 73 102 41c13 5 14 23 2 30L42 199c-15 8-33-3-33-20V94c0-15 18-27 33-21Z" opacity=".98"/>
+  <path fill="url(#violet)" d="M39 153v54c0 14 15 23 27 16l79-48-51-20-55-2Z"/>
+  <path fill="#fff" d="m101 83 69 43c8 5 8 16 0 21l-69 43c-9 6-21-1-21-11V94c0-10 12-17 21-11Z" filter="url(#glow)"/>
+  <path fill="#F06074" d="m112 100 38 25-38 24v-49Z" opacity=".35"/>
+</svg>
