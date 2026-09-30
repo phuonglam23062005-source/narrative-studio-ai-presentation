@@ -4,7 +4,7 @@
   var SESSION_KEY = 'narrative-studio.session.v1';
   var foundation = window.NarrativeFoundation;
   var storage = foundation && foundation.storage ? foundation.storage : window.localStorage;
-  var config = window.NarrativeAuthConfig || {};
+  var config = Object.assign({}, window.NarrativeAuthConfig || {});
   var googleScriptPromise = null;
   var bound = false;
 
@@ -53,7 +53,7 @@
     status.className = 'google-auth-status' + (tone ? ' ' + tone : '');
   }
   function googleReadyConfig() {
-    return Boolean(String(config.googleClientId || '').trim() && String(config.googleVerifyEndpoint || '').trim());
+    return Boolean(config.serverAuth === true && String(config.googleClientId || '').trim() && String(config.googleVerifyEndpoint || '').trim());
   }
   function setRoleUI(user) {
     var role = normalizeRole(user && user.role);
@@ -125,6 +125,29 @@
     });
     return googleScriptPromise;
   }
+  function loadPublicAuthConfig() {
+    var endpoint = String(config.googleConfigEndpoint || '').trim();
+    if (!endpoint) return Promise.resolve();
+    return fetch(endpoint, { headers: { Accept: 'application/json' }, credentials: 'same-origin' }).then(function (result) {
+      if (!result.ok) return null;
+      return result.json().catch(function () { return null; });
+    }).then(function (payload) {
+      if (payload && typeof payload === 'object') Object.assign(config, payload);
+    }).catch(function () {
+      // Local Python preview has no API route; it continues with local auth only.
+    });
+  }
+  function requestServerSession() {
+    if (!config.serverAuth) return Promise.resolve(null);
+    var endpoint = String(config.googleSessionEndpoint || '/api/auth/session').trim();
+    return fetch(endpoint, { credentials: 'include', headers: { Accept: 'application/json' } }).then(function (result) {
+      if (!result.ok) return null;
+      return result.json().catch(function () { return null; });
+    }).then(function (payload) {
+      if (!payload || !payload.user || !payload.user.email) return null;
+      return publicUser(Object.assign({}, payload.user, { provider: 'google' }));
+    }).catch(function () { return null; });
+  }
   function handleGoogleCredential(response) {
     var credential = response && response.credential;
     if (!credential) return setGoogleStatus('Google không trả về credential hợp lệ.', 'error');
@@ -165,10 +188,10 @@
     var fallback = byId('googleUnavailableButton');
     if (!host || !fallback) return;
     var clientId = String(config.googleClientId || '').trim();
-    if (!clientId) {
+    if (!clientId || !config.serverAuth) {
       host.classList.add('hidden');
       fallback.classList.remove('hidden');
-      setGoogleStatus('Google OAuth chưa được cấu hình cho bản local.');
+      setGoogleStatus(clientId ? 'Google OAuth chưa sẵn sàng: cần cấu hình backend verify và session trên Vercel.' : 'Google OAuth chưa được cấu hình cho bản local.');
       return;
     }
     loadGoogleScript().then(function () {
@@ -177,7 +200,7 @@
       host.innerHTML = '';
       window.google.accounts.id.renderButton(host, { theme: 'outline', size: 'large', text: 'continue_with', shape: 'rectangular', locale: 'vi', width: 360 });
       fallback.classList.add('hidden');
-      setGoogleStatus(googleReadyConfig() ? 'Google đã sẵn sàng; role do server quyết định.' : 'Đã tải nút Google; cần endpoint server verify trước khi đăng nhập.', googleReadyConfig() ? 'success' : 'pending');
+      setGoogleStatus(googleReadyConfig() ? 'Google đã sẵn sàng; role do server quyết định.' : 'Backend Google chưa sẵn sàng; chưa cho đăng nhập.', googleReadyConfig() ? 'success' : 'pending');
     }).catch(function (error) {
       host.classList.add('hidden');
       fallback.classList.remove('hidden');
@@ -260,18 +283,33 @@
   function bind() {
     if (bound) return;
     bound = true;
-    var sessionUser = currentUser();
-    if (sessionUser) showApp(sessionUser); else showAuth('login');
+    showAuth('login');
+    
     byId('showLoginBtn').addEventListener('click', function () { setStatus(''); showAuth('login'); });
     byId('showRegisterBtn').addEventListener('click', function () { setStatus(''); showAuth('register'); });
     byId('registerForm').addEventListener('submit', registerLocal);
     byId('loginForm').addEventListener('submit', loginLocal);
     byId('logoutBtn').addEventListener('click', function () {
       storage.removeItem(SESSION_KEY);
+      var endpoint = String(config.googleLogoutEndpoint || '').trim();
+      var request = endpoint ? fetch(endpoint, { method: 'POST', credentials: 'include' }).catch(function () {}) : Promise.resolve();
+      request.finally(function () {
       showAuth('login');
       setStatus('Đã đăng xuất khỏi tài khoản.', 'success');
+      });
     });
-    setupGoogle();
+    loadPublicAuthConfig().then(function () {
+      return requestServerSession();
+    }).then(function (serverUser) {
+      if (serverUser) {
+        write(SESSION_KEY, { provider: 'google', id: serverUser.id, name: serverUser.name, email: serverUser.email, role: serverUser.role, picture: serverUser.picture, signedInAt: new Date().toISOString() });
+        showApp(serverUser);
+        return;
+      }
+      if (config.serverAuth) storage.removeItem(SESSION_KEY);
+      var localUser = config.serverAuth ? null : currentUser();
+      if (localUser) showApp(localUser); else showAuth('login');
+    }).finally(setupGoogle);
   }
 
   window.NarrativeAuth = Object.freeze({
